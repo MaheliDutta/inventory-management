@@ -1,0 +1,219 @@
+<div class="inventory-management-conatiner">
+  <div class="header">
+    <div class="pd-12">
+      <span class="toogle-text">admin</span>
+      <mat-slide-toggle
+        (change)="toggleUserType()"
+        [checked]="isUserToggle"
+        [class.green-toggle]="isUserToggle"
+      ></mat-slide-toggle>
+      <span class="toogle-text">user</span>
+    </div>
+    <div>
+      <button class="exit-button" mat-icon-button>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="logout icon"
+          fontIcon="logout"
+          [ariaSetSize]="50"
+          color="warn"
+          style="color: white; font-size: 20px;"
+        ></mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title">Inventory stats</div>
+
+    <!-----Widget------>
+    <div class="container-card">
+      <!---------Total Product------>
+      <div class="card">
+        <div class="card-title">
+          <span class="material-icons">shopping_cart</span>
+          <span class="title-text">Total product</span>
+        </div>
+        <div class="widget-value">
+          <span class="value"> {{ totalProduct }} </span>
+        </div>
+      </div>
+
+      <!------Total Store Value------->
+
+      <div class="card">
+        <div class="card-title">
+          <img
+            class="icon"
+            src="../../assets/dollar.png"
+            alt="Total Store Value"
+          />
+          <span class="title-text">Total Store Value</span>
+        </div>
+        <div class="widget-value">
+          <span class="value"> {{ totalStoreValue }} </span>
+        </div>
+      </div>
+
+      <!------Out of stock------->
+
+      <div class="card">
+        <div class="card-title">
+          <img
+            class="icon"
+            src="../../assets/out-of-stock.png"
+            alt="Shopping Cart Empty"
+          />
+          <span class="title-text">Out of stock</span>
+        </div>
+        <div class="widget-value">
+          <span class="value"> {{ outOfStock }} </span>
+        </div>
+      </div>
+
+      <!------No of Category------->
+
+      <div class="card">
+        <div class="card-title">
+          <img
+            class="icon"
+            src="../../assets/category.png"
+            alt="No of Category"
+          />
+          <span class="title-text">No of Category</span>
+        </div>
+        <div class="widget-value">
+          <span class="value"> {{ numberOfCategory }} </span>
+        </div>
+      </div>
+    </div>
+
+    <!----Table------>
+    <div class="table-container">
+      <table mat-table [dataSource]="inventoryList" class="inventory-list">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="item table-item">
+              <span> Name </span>
+            </div>
+          </th>
+          <td 
+          mat-cell 
+          *matCellDef="let element"
+          [ngClass]="{ 'disabled': element.disableRow}"
+          >
+            <ng-container>
+              <span class="table-element">
+                {{ element.name }}
+              </span>
+            </ng-container>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="item category-item">
+              <span> Category </span>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element"  [ngClass]="{ 'disabled': element.disableRow}">
+            <ng-container>
+              <span class="table-element">
+                {{ element.category }}
+              </span>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="item value-item">
+              <span> Price </span>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container>
+              <span class="table-element"           [ngClass]="{ 'disabled': element.disableRow}">
+                {{ element.price }}
+              </span>
+            </ng-container>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="item quantity-item">
+              <span> Quantity </span>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container>
+              <span class="table-element"          [ngClass]="{ 'disabled': element.disableRow}">
+                {{ element.quantity }}
+              </span>
+            </ng-container>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="item value-item">
+              <span> Value </span>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container>
+              <span class="table-element"           [ngClass]="{ 'disabled': element.disableRow}">
+                {{ element.value }}
+              </span>
+            </ng-container>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="item quantity-item">
+              <span> Actions </span>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <ng-container>
+              <div class="action-buttons">
+                <mat-icon
+                  class="view visibility"
+                  [ngClass]="{'disabled-pointer':isUserToggle,'disabled':isUserToggle}"
+                  (click)="onClickView(i, element)"
+                  >{{
+                    element.disableRow ? "visibility_off" : "visibility"
+                  }}</mat-icon
+                >
+                <mat-icon
+                  class="view edit"
+                  matPrefix
+                  [ngClass]="{ 'disabled-pointer':isUserToggle || element.disableRow ,'disabled':isUserToggle||element.disableRow}"
+                  (click)="onClickEdit(i, element)"
+                  >{{ "edit" }}</mat-icon
+                >
+                <mat-icon class="view delete"
+                [ngClass]="{'disabled-pointer':isUserToggle ,'disabled':isUserToggle}"
+                 (click)="onClickDelete(i)"
+                 name='bar'
+                  >delete</mat-icon
+                >
+              </div>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let element; columns: displayedColumns"
+          class="table-row"
+          #row
+        ></tr>
+      </table>
+      <ng-container *ngIf="inventoryList.length === 0">
+        <div class="no-item">Inventory Data is not available</div>
+      </ng-container>
+    </div>
+  </div>
+</div>

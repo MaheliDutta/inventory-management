@@ -1,0 +1,78 @@
+.edit-crud {
+  padding: 24px;
+  background-color: #2A2B27 !important;
+  color: #ffff;
+  .title{
+    color: #ffff;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  .product-name{
+    padding-top: 4px;
+    padding-bottom: 10px;
+    font-weight: 100;
+  }
+  .item{
+    padding-bottom: 8px;
+    font-weight: 100;
+    padding-left: 4px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .edit-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .fotter {
+    display: flex;
+    justify-content: end;
+  }
+  .view.mat-icon {
+    font-size: 24px !important;
+    height: 40px !important;
+    width: 40px !important;
+  }
+  .action-buttons{
+    color: #D4F453;
+    background: unset !important;
+  }
+  .save-button{
+    color: #D4F453;
+    background-color:#444542;
+    border-radius: 16px;
+  
+  }
+}
+::ng-deep{
+    .mat-mdc-dialog-container .mdc-dialog__surface {
+        border-radius: 24px !important;
+      }
+}
+:host ::ng-deep {
+  .material-icons {
+    font-size: 29px !important;
+    color:#D4F453
+  }
+  .mat-mdc-text-field-wrapper{
+    width: 100% !important;
+    border-radius: 55px !important;
+    background-color: #40413E !important;
+  }
+  .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input{
+   color: #e0e0e078 !important
+  }
+  .mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 28px;
+  }
+  .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix{
+    padding-top:11px !important
+  }
+  .mat-mdc-form-field {
+    height:61px;
+  }
+  mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 24px !important;
+  }
+}

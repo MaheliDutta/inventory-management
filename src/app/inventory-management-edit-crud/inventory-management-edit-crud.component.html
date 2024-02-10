@@ -1,0 +1,54 @@
+<div class="edit-crud">
+  <div class="header">
+    <div class="title">Edit product</div>
+    <div class="action">
+      <button mat-icon-button class="view" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="product-name">
+    {{ product_data.name }}
+  </div>
+  <div class="header">
+    <div class="edit-item">
+      <mat-label class="item">Category</mat-label>
+      <mat-form-field>
+        <input matInput [ngModel]="product_data.category"
+        (ngModelChange)="onProductCategoryChange($event)" />
+      </mat-form-field>
+    </div>
+    <div class="edit-item">
+      <mat-label class="item">Price</mat-label>
+      <mat-form-field>
+        <input matInput [ngModel]="product_data.price"
+        (ngModelChange)="onProductPriceChange($event)"
+         />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="header">
+    <div class="edit-item">
+      <mat-label class="item">Quantity</mat-label>
+      <mat-form-field>
+        <input matInput
+        type="number"
+         [ngModel]="product_data.quantity" 
+        (ngModelChange)="onProductQuantityChange($event)"
+        />
+      </mat-form-field>
+    </div>
+    <div class="edit-item">
+      <mat-label class="item">Value</mat-label>
+      <mat-form-field>
+        <input matInput [ngModel]="product_data.value"
+        (ngModelChange)="onProductValueChange($event)"
+         />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fotter">
+    <button mat-flat-button class="action-buttons" mat-dialog-close>Cancel</button>
+    <button mat-raised-button class="save-button" (click)="onClickSave()">Save</button>
+  </div>
+</div>
