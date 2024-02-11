@@ -31,9 +31,8 @@ To execute the unit tests via Karma, run ng test.
 To execute the end-to-end tests, you need to first add a package that implements end-to-end testing capabilities. Then, run ng e2e.
 
 # Additional Information
-State Management: This project utilizes RxJS for state management.
-Unit Tests: Jasmine framework is used for unit tests.
-Hosting: The project is hosted on https://mahelidutta.github.io/inventory-management/
-For more help on the Angular CLI, use ng help or refer to the Angular CLI Overview and Command Reference.
+## State Management: This project utilizes RxJS for state management.
+## Unit Tests: Jasmine framework is used for unit tests.
+## Hosting: The project is hosted on https://mahelidutta.github.io/inventory-management/
 
 Feel free to explore the codebase and contribute to this project! If you have any questions or suggestions, please don't hesitate to reach out. Thank you for using Inventory Management System! 🚀
