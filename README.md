@@ -1,16 +1,17 @@
-Inventory Management System
+#Inventory Management System
 Welcome to the Inventory Management System project! This project is built using Angular CLI version 15.2.9.
 
-Project Overview
+#Project Overview
 The Inventory Management System is designed to efficiently manage inventory with different user roles. There are two main roles in this system: admin and user.
 
-Admin Functionality
+#Admin Functionality
 View: Admins can view the inventory items.
 Edit: Admins can edit inventory items.
 Delete: Admins can delete inventory items.
 User Functionality
 View Only: Users can only view the inventory items. They don't have permissions to edit or delete.
-Development Setup
+
+#Development Setup
 To run this project locally, follow these steps:
 
 Clone the repository to your local machine.
@@ -22,14 +23,14 @@ Navigate to http://localhost:5201/ in your web browser. The application will aut
 Building the Project
 To build the project, run ng build. The build artifacts will be stored in the dist/ directory.
 
-Running Tests
+#Running Tests
 Unit Tests
 To execute the unit tests via Karma, run ng test.
 
-End-to-End Tests
+#End-to-End Tests
 To execute the end-to-end tests, you need to first add a package that implements end-to-end testing capabilities. Then, run ng e2e.
 
-Additional Information
+#Additional Information
 State Management: This project utilizes RxJS for state management.
 Unit Tests: Jasmine framework is used for unit tests.
 Hosting: The project is hosted on https://mahelidutta.github.io/inventory-management/
